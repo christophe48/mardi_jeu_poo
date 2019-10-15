@@ -2,7 +2,7 @@ require 'bundler'
 Bundler.require
 
 require_relative 'lib/game'
-require_relative 'lib/player_exo1'
+require_relative 'lib/player'
 
 def class_player_play
   joueur1 = Player.new("Jacquie", 10)
