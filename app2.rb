@@ -72,7 +72,7 @@ def class_humanplayer_play
             puts "#{array_ennemies_name[alea]} est déjà mort, arrète la nécrophilie. Tu as d'autre ennemie"
           end
         end
-    elsif action == "F" || action == "f"
+    elsif action == "F" || action == "f" #j'offre la possibilité de quitter le jeu rapidement au joueur
       puts "Chuck Noris est arrivé et t'a tué avec son pouce, tu as perdu"
       joueur1.life_points = 0
       break #cette fonction me permet de stopper la boucle
@@ -80,7 +80,7 @@ def class_humanplayer_play
       puts "Ton personnage a été distrait par une mouche (la prochaine fois choisit une lettre entre H,W,A ou F)"
     end
     sleep(1)
-
+#aprés les choix du joueur c'est aux tours des bots de jouers
     if ennemies1.life_points > 0
       ennemies1.attacks(joueur1)
       sleep(0.5)
@@ -97,6 +97,7 @@ def class_humanplayer_play
     i += 1
   end
 
+#j'affiche les conitions de victoires et le message de victoire ou de défaites
   if joueur1.life_points > 0
     puts "Félicitation #{joueur1.name}, tu as gagné ton combat"
   else

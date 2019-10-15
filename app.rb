@@ -14,6 +14,7 @@ def class_player_play
   puts "Honneur à #{joueur1.name}"
   puts "Débutons le combat\n"
 
+#cette boucle me permet de lancer automatiquement le combat entre joueur1 et joueur2
 i=1
   while joueur1.is_dead? == false && joueur2.is_dead? == false
    puts"----------------Round #{i}----------------"
@@ -28,8 +29,9 @@ i=1
     end
 
     i += 1
-    sleep(0.1)
   end
+
+  #enfin on met des conditions de victoires
   if joueur1.is_dead?
     puts "WOW! #{joueur2.coup} de #{joueur2.name}, malheuresement sur ce coup, je pense que #{joueur1.name} ne se relèvera pas"
     puts "Nous avons notre vainqueur, #{joueur2.name} conservera sa ceinture"

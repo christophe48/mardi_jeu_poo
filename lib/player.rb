@@ -8,10 +8,11 @@ attr_accessor :name, :life_points, :weapon_level #je met weapon_level aussi ici 
     @weapon_level = 1
   end
 
+ #cette def me permet de voir les stats du personnage
   def show_state
     puts "#{name} à #{life_points} points de vie"
   end
-
+# cette def permet de retirer des dommages aux life_points d'un joueur
   def gets_damage(damages)
       @life_points -= damages
     if life_points > 0
@@ -20,13 +21,13 @@ attr_accessor :name, :life_points, :weapon_level #je met weapon_level aussi ici 
       puts "#{name} a perdu #{damages}, #{name} a été tué"
     end
   end
-
+# cette def me permet de faire attaquer un joueur un autre joueur
   def attacks(victime_name)
     @degat = compute_damage
     puts "le joueur #{name} fait #{coup} sur le joueur #{victime_name.name}!"
     victime_name.gets_damage(@degat)
   end
-
+#cette def me permet d'infliger des dégats aléatoires
   def compute_damage
       return rand(1..6) * @weapon_level
   end
@@ -66,7 +67,7 @@ class HumanPlayer < Player
     puts "#{@name} a #{@life_points} points de vie et une arme de niveau #{weapon_level}"
   end
 
-  #avec ma def "coup" dans player il y a deux random qui sont généré
+  #avec ma def "coup" dans Player il y a deux random qui sont généré
   #je décide d'enlevé celle ci d'ici pour la mettre dans player
   #afin que les calculs sont bon en fonction du coup porté
 
@@ -74,6 +75,7 @@ class HumanPlayer < Player
   #  rand(1..6) * @weapon_level
   #end
 
+#cette def me permet de faire une action de recherche d'une nouvelle arme
   def search_weapon
     new_level_weapon = rand(1..6)
     puts "#{@name} a trouvé une arme de niveau #{new_level_weapon}"
@@ -84,7 +86,7 @@ class HumanPlayer < Player
       puts "#{@name} jette cette arme toute pérave"
     end
   end
-
+# cette def me pemet de faire une action de recherche de soins
   def search_health_pack
     health_pack= rand(1..6)
     if health_pack == 1
